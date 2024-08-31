@@ -4,7 +4,6 @@ let cookieParser = require("cookie-parser");
 let bodyParser = require("body-parser");
 let apiAddress = require("./config/publicPath");
 
-
 mongoose.connect("mongodb://127.0.0.1:27017/blogDB", {
     useNewUrlParser: true,//使用新的解析器
     useUnifiedTopology: true//重连的设置参数无效
@@ -19,6 +18,8 @@ let app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+
 
 
 //对所有的路由处理跨域请求

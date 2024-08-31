@@ -2,10 +2,7 @@ let mongoose = require('mongoose');
 let Scheme = mongoose.Schema;
 
 let visitorInfo = new Scheme({
-    ip: {
-        type: String,
-        required: true
-    },
+
     visitTime: {
         type: Date,
         required: true

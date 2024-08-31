@@ -22,6 +22,9 @@ authenticationApp.post("/registerUser", function (req, res) {
     let passWord = enCryptData(req.body.passWord, key, "sha256");
     let userName = req.body.userName;
     let myAvatar = req.body.myAvatar;
+    let visitTime = req.body.visitTime;
+    let location = req.body.location;
+    let city = req.body.city;
     let token = enCryptData(v4(), v4(), "sha256");
     userTable.find({
         userName: userName

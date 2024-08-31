@@ -1,29 +1,27 @@
 let express = require('express');
-let websiteTable = require('../db/webSiteDB/index');
+let websiteTable = require('../db/webSiteDB/webSiteTable');
 let websiteDataApp = express();
+websiteDataApp.get('/setVisitorData', async function(req, res){
 
-websiteDataApp.post('/setVisitorData', function(req, res){
-    let reqData = req.body;
-    if((typeof reqData.rectangle) === 'string'){
-        let data = {
-            ip: reqData.ip,
-            visitTime: reqData.visitTime,
-            province: reqData.province,
-            city: reqData.city,
-            location: reqData.rectangle.split(';')[0].split(',')
-        };
-        websiteTable.create(data).then(()=>{
-            res.send({
-                status: 200,
-                message: '有人来访问啦'
-            })
-        })
-    } else{
-        res.send({
-            status: 200,
-            message: '境外ip不予记录'
-        })
-    }
+    console.log("websiteDataServer",res);
+    // let data = {
+    //     visitTime: resData.visitTime,
+    //     province: resData.province,
+    //     city: resData.city,
+    //     location: resData.rectangle.split(';')[0].split(',')
+    // };
+    // console.log("websiteDataServer",data);
+    // we
+    //  bsiteTable.create(data).then(()=>{
+    //     res.send({
+    //         status: 200,
+    //         message: '有人来访问啦'
+    //     })
+    // })
+    res.send({
+        status: 200,
+        message:"ok"
+    })
 })
 
 websiteDataApp.get('/websiteData', async function(req, res){
